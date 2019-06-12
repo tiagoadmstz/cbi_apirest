@@ -1,9 +1,11 @@
 package br.com.dsc.cbi.apirest;
 
+import br.com.dsc.cbi.apirest.entities.Categoria;
 import br.com.dsc.cbi.apirest.entities.Usuario;
 import br.com.dsc.cbi.apirest.odbc.ConnectionManager;
-import br.com.dsc.cbi.apirest.repositories.MarcaRepository;
-import br.com.dsc.cbi.apirest.repositories.UsuarioRepository;
+import br.com.dsc.cbi.apirest.repositories.CategoriaRepository;
+import com.fasterxml.jackson.core.type.TypeReference;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +22,13 @@ public class CbiApirestApplicationTests {
     }
 
     //@Autowired
-    private MarcaRepository repository;
-    
+    private CategoriaRepository repository;
+
     //@Test
     public void test() {
-        new ConnectionManager().jsonInsert(repository);
+        ConnectionManager cm = new ConnectionManager();
+        cm.jsonInsert(repository, cm.fileToJson("cad_categorias.json"), new TypeReference<List<Categoria>>() {
+        });
     }
 
     public void addUser(String login, String senha) {
