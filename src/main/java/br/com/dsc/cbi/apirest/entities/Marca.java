@@ -6,9 +6,8 @@
 package br.com.dsc.cbi.apirest.entities;
 
 import java.io.Serializable;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  *
@@ -18,7 +17,6 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Marca implements Serializable {
 
     @Id
-    @Field("_id")
     private String marca;
     private String nome;
 

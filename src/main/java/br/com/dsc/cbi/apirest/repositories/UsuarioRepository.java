@@ -6,7 +6,7 @@
 package br.com.dsc.cbi.apirest.repositories;
 
 import br.com.dsc.cbi.apirest.entities.Usuario;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,6 +14,8 @@ import org.springframework.stereotype.Repository;
  * @author Tiago
  */
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+public interface UsuarioRepository extends MongoRepository<Usuario, String> {
+
+    public Usuario findByUsername(String username);
 
 }
