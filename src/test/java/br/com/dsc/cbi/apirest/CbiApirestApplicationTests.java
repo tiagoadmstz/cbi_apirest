@@ -1,9 +1,9 @@
 package br.com.dsc.cbi.apirest;
 
-import br.com.dsc.cbi.apirest.entities.Categoria;
+import br.com.dsc.cbi.apirest.entities.Marca;
 import br.com.dsc.cbi.apirest.entities.Usuario;
 import br.com.dsc.cbi.apirest.odbc.ConnectionManager;
-import br.com.dsc.cbi.apirest.repositories.CategoriaRepository;
+import br.com.dsc.cbi.apirest.repositories.MarcaRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import java.util.List;
 import org.junit.Test;
@@ -21,14 +21,15 @@ public class CbiApirestApplicationTests {
     public void contextLoads() {
     }
 
-    //@Autowired
-    private CategoriaRepository repository;
+    @Autowired
+    private MarcaRepository repository;
 
-    //@Test
+    @Test
     public void test() {
-        ConnectionManager cm = new ConnectionManager();
-        cm.jsonInsert(repository, cm.fileToJson("cad_categorias.json"), new TypeReference<List<Categoria>>() {
-        });
+        //ConnectionManager cm = new ConnectionManager();
+        //cm.jsonInsert(repository, cm.fileToJson("cad_marcas.json"), new TypeReference<List<Marca>>() {
+        //});
+        repository.findAll().forEach(marca -> System.out.println(marca));
     }
 
     public void addUser(String login, String senha) {
