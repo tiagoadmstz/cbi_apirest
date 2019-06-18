@@ -5,9 +5,13 @@
  */
 package br.com.dsc.cbi.apirest.entities;
 
+import br.com.dsc.cbi.apirest.rest.converters.LocalDateTimeDerialiazer;
+import br.com.dsc.cbi.apirest.rest.converters.LocalDateTimeSerialiazer;
 import java.time.LocalDateTime;
 import java.util.List;
 import br.com.dsc.cbi.apirest.interfaces.Equipamento;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 
 /**
@@ -89,6 +93,8 @@ public class Equipamento_Eletrico implements Serializable, Equipamento {
         this.modelo = modelo;
     }
 
+    @JsonSerialize(using = LocalDateTimeSerialiazer.class)
+    @JsonDeserialize(using = LocalDateTimeDerialiazer.class)
     public LocalDateTime getData_fabricacao() {
         return data_fabricacao;
     }

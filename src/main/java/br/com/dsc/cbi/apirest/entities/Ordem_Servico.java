@@ -5,7 +5,11 @@
  */
 package br.com.dsc.cbi.apirest.entities;
 
+import br.com.dsc.cbi.apirest.rest.converters.LocalDateTimeDerialiazer;
+import br.com.dsc.cbi.apirest.rest.converters.LocalDateTimeSerialiazer;
 import br.com.dsc.cbi.apirest.interfaces.Equipamento;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,12 +27,12 @@ public class Ordem_Servico implements Serializable {
     private String id;
     private String os;
     private String equipamento;
-    private LocalDateTime data;
+    private LocalDateTime data_realizacao;
     private String nome_cliente;
     private LocalDateTime prazo_finalizacao;
     private LocalDateTime prazo_rebobinamento;
     private LocalDateTime prazo_montagem;
-    private Equipamento dados_equipamento;
+    private Equipamento_Eletrico dados_equipamento;
     private String observacoes;
     private String nota_fiscal;
     private String palete;
@@ -62,12 +66,14 @@ public class Ordem_Servico implements Serializable {
         this.equipamento = equipamento;
     }
 
-    public LocalDateTime getData() {
-        return data;
+    @JsonSerialize(using = LocalDateTimeSerialiazer.class)
+    @JsonDeserialize(using = LocalDateTimeDerialiazer.class)
+    public LocalDateTime getData_realizacao() {
+        return data_realizacao;
     }
 
-    public void setData(LocalDateTime data) {
-        this.data = data;
+    public void setData_realizacao(LocalDateTime data_realizacao) {
+        this.data_realizacao = data_realizacao;
     }
 
     public String getNome_cliente() {
@@ -78,6 +84,8 @@ public class Ordem_Servico implements Serializable {
         this.nome_cliente = nome_cliente;
     }
 
+    @JsonSerialize(using = LocalDateTimeSerialiazer.class)
+    @JsonDeserialize(using = LocalDateTimeDerialiazer.class)
     public LocalDateTime getPrazo_finalizacao() {
         return prazo_finalizacao;
     }
@@ -86,6 +94,8 @@ public class Ordem_Servico implements Serializable {
         this.prazo_finalizacao = prazo_finalizacao;
     }
 
+    @JsonSerialize(using = LocalDateTimeSerialiazer.class)
+    @JsonDeserialize(using = LocalDateTimeDerialiazer.class)
     public LocalDateTime getPrazo_rebobinamento() {
         return prazo_rebobinamento;
     }
@@ -94,6 +104,8 @@ public class Ordem_Servico implements Serializable {
         this.prazo_rebobinamento = prazo_rebobinamento;
     }
 
+    @JsonSerialize(using = LocalDateTimeSerialiazer.class)
+    @JsonDeserialize(using = LocalDateTimeDerialiazer.class)
     public LocalDateTime getPrazo_montagem() {
         return prazo_montagem;
     }
@@ -102,11 +114,11 @@ public class Ordem_Servico implements Serializable {
         this.prazo_montagem = prazo_montagem;
     }
 
-    public Equipamento getDados_equipamento() {
+    public Equipamento_Eletrico getDados_equipamento() {
         return dados_equipamento;
     }
 
-    public void setDados_equipamento(Equipamento dados_equipamento) {
+    public void setDados_equipamento(Equipamento_Eletrico dados_equipamento) {
         this.dados_equipamento = dados_equipamento;
     }
 
@@ -152,7 +164,7 @@ public class Ordem_Servico implements Serializable {
 
     @Override
     public String toString() {
-        return "Ordem_Servico{" + "id=" + id + ", os=" + os + ", equipamento=" + equipamento + ", data=" + data + ", nome_cliente=" + nome_cliente + ", prazo_finalizacao=" + prazo_finalizacao + ", prazo_rebobinamento=" + prazo_rebobinamento + ", prazo_montagem=" + prazo_montagem + ", dados_equipamento=" + dados_equipamento + ", observacoes=" + observacoes + ", nota_fiscal=" + nota_fiscal + ", palete=" + palete + ", status=" + status + ", anexos=" + anexos + '}';
+        return "Ordem_Servico{" + "id=" + id + ", os=" + os + ", equipamento=" + equipamento + ", data_realizacao=" + data_realizacao + ", nome_cliente=" + nome_cliente + ", prazo_finalizacao=" + prazo_finalizacao + ", prazo_rebobinamento=" + prazo_rebobinamento + ", prazo_montagem=" + prazo_montagem + ", dados_equipamento=" + dados_equipamento + ", observacoes=" + observacoes + ", nota_fiscal=" + nota_fiscal + ", palete=" + palete + ", status=" + status + ", anexos=" + anexos + '}';
     }
     
 }

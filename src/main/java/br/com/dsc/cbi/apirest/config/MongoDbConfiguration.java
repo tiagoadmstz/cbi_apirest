@@ -8,7 +8,6 @@ package br.com.dsc.cbi.apirest.config;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 
 /**
@@ -25,7 +24,7 @@ public class MongoDbConfiguration extends AbstractMongoConfiguration {
 
     @Override
     public MongoClient mongoClient() {
-        return new MongoClient(new MongoClientURI("mongodb+srv://root:Sermed357@cluster0-j2bue.mongodb.net/test?retryWrites=true&w=majority"));
+        return new MongoClient(new MongoClientURI("mongodb+srv://root:Pedro1714%40%23%24@cluster0-j2bue.mongodb.net/test?retryWrites=true&w=majority"));
     }
 
     @Override

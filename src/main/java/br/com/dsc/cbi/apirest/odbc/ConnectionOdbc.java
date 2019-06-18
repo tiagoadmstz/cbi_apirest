@@ -56,7 +56,7 @@ public class ConnectionOdbc {
         }
     }
 
-    public List<String> getColumnName(Connection conn, String table) {
+    public List<String> getColumnsName(Connection conn, String table) {
         try {
             List<String> columns = new ArrayList();
             ResultSet rs = conn.getMetaData().getColumns(null, null, table, null);
