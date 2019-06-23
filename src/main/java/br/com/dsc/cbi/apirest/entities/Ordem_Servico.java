@@ -7,13 +7,14 @@ package br.com.dsc.cbi.apirest.entities;
 
 import br.com.dsc.cbi.apirest.rest.converters.LocalDateTimeDerialiazer;
 import br.com.dsc.cbi.apirest.rest.converters.LocalDateTimeSerialiazer;
-import br.com.dsc.cbi.apirest.interfaces.Equipamento;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -22,21 +23,28 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document("mov_ordem_servico")
 public class Ordem_Servico implements Serializable {
-    
+
     @Id
     private String id;
+    @Indexed
     private String os;
     private String equipamento;
+    @Indexed
     private LocalDateTime data_realizacao;
+    @Indexed
     private String nome_cliente;
+    @Indexed
     private LocalDateTime prazo_finalizacao;
+    @Indexed
     private LocalDateTime prazo_rebobinamento;
+    @Indexed
     private LocalDateTime prazo_montagem;
     private Equipamento_Eletrico dados_equipamento;
     private String observacoes;
     private String nota_fiscal;
     private String palete;
     private String status;
+    private List<Teste> testes;
     private List<String> anexos;
 
     public Ordem_Servico() {
@@ -154,6 +162,14 @@ public class Ordem_Servico implements Serializable {
         this.status = status;
     }
 
+    public List<Teste> getTestes() {
+        return testes;
+    }
+
+    public void setTestes(List<Teste> testes) {
+        this.testes = testes;
+    }
+
     public List<String> getAnexos() {
         return anexos;
     }
@@ -163,8 +179,89 @@ public class Ordem_Servico implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Ordem_Servico{" + "id=" + id + ", os=" + os + ", equipamento=" + equipamento + ", data_realizacao=" + data_realizacao + ", nome_cliente=" + nome_cliente + ", prazo_finalizacao=" + prazo_finalizacao + ", prazo_rebobinamento=" + prazo_rebobinamento + ", prazo_montagem=" + prazo_montagem + ", dados_equipamento=" + dados_equipamento + ", observacoes=" + observacoes + ", nota_fiscal=" + nota_fiscal + ", palete=" + palete + ", status=" + status + ", anexos=" + anexos + '}';
+    public int hashCode() {
+        int hash = 3;
+        hash = 47 * hash + Objects.hashCode(this.id);
+        hash = 47 * hash + Objects.hashCode(this.os);
+        hash = 47 * hash + Objects.hashCode(this.equipamento);
+        hash = 47 * hash + Objects.hashCode(this.data_realizacao);
+        hash = 47 * hash + Objects.hashCode(this.nome_cliente);
+        hash = 47 * hash + Objects.hashCode(this.prazo_finalizacao);
+        hash = 47 * hash + Objects.hashCode(this.prazo_rebobinamento);
+        hash = 47 * hash + Objects.hashCode(this.prazo_montagem);
+        hash = 47 * hash + Objects.hashCode(this.dados_equipamento);
+        hash = 47 * hash + Objects.hashCode(this.observacoes);
+        hash = 47 * hash + Objects.hashCode(this.nota_fiscal);
+        hash = 47 * hash + Objects.hashCode(this.palete);
+        hash = 47 * hash + Objects.hashCode(this.status);
+        hash = 47 * hash + Objects.hashCode(this.testes);
+        hash = 47 * hash + Objects.hashCode(this.anexos);
+        return hash;
     }
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Ordem_Servico other = (Ordem_Servico) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.os, other.os)) {
+            return false;
+        }
+        if (!Objects.equals(this.equipamento, other.equipamento)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome_cliente, other.nome_cliente)) {
+            return false;
+        }
+        if (!Objects.equals(this.observacoes, other.observacoes)) {
+            return false;
+        }
+        if (!Objects.equals(this.nota_fiscal, other.nota_fiscal)) {
+            return false;
+        }
+        if (!Objects.equals(this.palete, other.palete)) {
+            return false;
+        }
+        if (!Objects.equals(this.status, other.status)) {
+            return false;
+        }
+        if (!Objects.equals(this.data_realizacao, other.data_realizacao)) {
+            return false;
+        }
+        if (!Objects.equals(this.prazo_finalizacao, other.prazo_finalizacao)) {
+            return false;
+        }
+        if (!Objects.equals(this.prazo_rebobinamento, other.prazo_rebobinamento)) {
+            return false;
+        }
+        if (!Objects.equals(this.prazo_montagem, other.prazo_montagem)) {
+            return false;
+        }
+        if (!Objects.equals(this.dados_equipamento, other.dados_equipamento)) {
+            return false;
+        }
+        if (!Objects.equals(this.testes, other.testes)) {
+            return false;
+        }
+        if (!Objects.equals(this.anexos, other.anexos)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Ordem_Servico{" + "id=" + id + ", os=" + os + ", equipamento=" + equipamento + ", data_realizacao=" + data_realizacao + ", nome_cliente=" + nome_cliente + ", prazo_finalizacao=" + prazo_finalizacao + ", prazo_rebobinamento=" + prazo_rebobinamento + ", prazo_montagem=" + prazo_montagem + ", dados_equipamento=" + dados_equipamento + ", observacoes=" + observacoes + ", nota_fiscal=" + nota_fiscal + ", palete=" + palete + ", status=" + status + ", testes=" + testes + ", anexos=" + anexos + '}';
+    }
+
 }

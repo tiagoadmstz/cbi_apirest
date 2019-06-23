@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.dsc.cbi.apirest.entities.ae;
+package br.com.dsc.cbi.apirest.entities.atmosferaex;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,28 +16,28 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author Tiago
  */
 @Document("ex_anel_fixacao")
-public class ExAnelFixacao {
+public class ExAnelFixacao implements Serializable {
 
     @Id
     private String anel_fixacao;
     private Integer carcaca;
     private String linha;
     private Integer polos;
-    private String w_dianteiro;
-    private String w1_dianteiro;
-    private String w2_dianteiro;
-    private String w3_dianteiro;
-    private String w_traseiro;
-    private String w1_traseiro;
-    private String w2_traseiro;
-    private String w3_traseiro;
-    private String comprimento_passagem_chama_L;
-    private String diametro_passagem_chama_dianteiro;
-    private String diametro_passagem_chama_traseiro;
-    private String diametro_passagem_chama_eixoE_dianteiro;
-    private String diametro_passagem_chama_eixoE_traseiro;
-    private String folga_maxima_dianteira;
-    private String folga_maxima_traseira;
+    private BigDecimal w_dianteiro;
+    private BigDecimal w1_dianteiro;
+    private BigDecimal w2_dianteiro;
+    private BigDecimal w3_dianteiro;
+    private BigDecimal w_traseiro;
+    private BigDecimal w1_traseiro;
+    private BigDecimal w2_traseiro;
+    private BigDecimal w3_traseiro;
+    private BigDecimal comprimento_passagem_chama_L;
+    private BigDecimal diametro_passagem_chama_dianteiro;
+    private BigDecimal diametro_passagem_chama_traseiro;
+    private BigDecimal diametro_passagem_chama_eixoE_dianteiro;
+    private BigDecimal diametro_passagem_chama_eixoE_traseiro;
+    private BigDecimal folga_maxima_dianteira;
+    private BigDecimal folga_maxima_traseira;
 
     public ExAnelFixacao() {
     }
@@ -72,148 +74,148 @@ public class ExAnelFixacao {
         this.polos = polos;
     }
 
-    public String getW_dianteiro() {
+    public BigDecimal getW_dianteiro() {
         return w_dianteiro;
     }
 
-    public void setW_dianteiro(String w_dianteiro) {
+    public void setW_dianteiro(BigDecimal w_dianteiro) {
         this.w_dianteiro = w_dianteiro;
     }
 
-    public String getW1_dianteiro() {
+    public BigDecimal getW1_dianteiro() {
         return w1_dianteiro;
     }
 
-    public void setW1_dianteiro(String w1_dianteiro) {
+    public void setW1_dianteiro(BigDecimal w1_dianteiro) {
         this.w1_dianteiro = w1_dianteiro;
     }
 
-    public String getW2_dianteiro() {
+    public BigDecimal getW2_dianteiro() {
         return w2_dianteiro;
     }
 
-    public void setW2_dianteiro(String w2_dianteiro) {
+    public void setW2_dianteiro(BigDecimal w2_dianteiro) {
         this.w2_dianteiro = w2_dianteiro;
     }
 
-    public String getW3_dianteiro() {
+    public BigDecimal getW3_dianteiro() {
         return w3_dianteiro;
     }
 
-    public void setW3_dianteiro(String w3_dianteiro) {
+    public void setW3_dianteiro(BigDecimal w3_dianteiro) {
         this.w3_dianteiro = w3_dianteiro;
     }
 
-    public String getW_traseiro() {
+    public BigDecimal getW_traseiro() {
         return w_traseiro;
     }
 
-    public void setW_traseiro(String w_traseiro) {
+    public void setW_traseiro(BigDecimal w_traseiro) {
         this.w_traseiro = w_traseiro;
     }
 
-    public String getW1_traseiro() {
+    public BigDecimal getW1_traseiro() {
         return w1_traseiro;
     }
 
-    public void setW1_traseiro(String w1_traseiro) {
+    public void setW1_traseiro(BigDecimal w1_traseiro) {
         this.w1_traseiro = w1_traseiro;
     }
 
-    public String getW2_traseiro() {
+    public BigDecimal getW2_traseiro() {
         return w2_traseiro;
     }
 
-    public void setW2_traseiro(String w2_traseiro) {
+    public void setW2_traseiro(BigDecimal w2_traseiro) {
         this.w2_traseiro = w2_traseiro;
     }
 
-    public String getW3_traseiro() {
+    public BigDecimal getW3_traseiro() {
         return w3_traseiro;
     }
 
-    public void setW3_traseiro(String w3_traseiro) {
+    public void setW3_traseiro(BigDecimal w3_traseiro) {
         this.w3_traseiro = w3_traseiro;
     }
 
-    public String getComprimento_passagem_chama_L() {
+    public BigDecimal getComprimento_passagem_chama_L() {
         return comprimento_passagem_chama_L;
     }
 
-    public void setComprimento_passagem_chama_L(String comprimento_passagem_chama_L) {
+    public void setComprimento_passagem_chama_L(BigDecimal comprimento_passagem_chama_L) {
         this.comprimento_passagem_chama_L = comprimento_passagem_chama_L;
     }
 
-    public String getDiametro_passagem_chama_dianteiro() {
+    public BigDecimal getDiametro_passagem_chama_dianteiro() {
         return diametro_passagem_chama_dianteiro;
     }
 
-    public void setDiametro_passagem_chama_dianteiro(String diametro_passagem_chama_dianteiro) {
+    public void setDiametro_passagem_chama_dianteiro(BigDecimal diametro_passagem_chama_dianteiro) {
         this.diametro_passagem_chama_dianteiro = diametro_passagem_chama_dianteiro;
     }
 
-    public String getDiametro_passagem_chama_traseiro() {
+    public BigDecimal getDiametro_passagem_chama_traseiro() {
         return diametro_passagem_chama_traseiro;
     }
 
-    public void setDiametro_passagem_chama_traseiro(String diametro_passagem_chama_traseiro) {
+    public void setDiametro_passagem_chama_traseiro(BigDecimal diametro_passagem_chama_traseiro) {
         this.diametro_passagem_chama_traseiro = diametro_passagem_chama_traseiro;
     }
 
-    public String getDiametro_passagem_chama_eixoE_dianteiro() {
+    public BigDecimal getDiametro_passagem_chama_eixoE_dianteiro() {
         return diametro_passagem_chama_eixoE_dianteiro;
     }
 
-    public void setDiametro_passagem_chama_eixoE_dianteiro(String diametro_passagem_chama_eixoE_dianteiro) {
+    public void setDiametro_passagem_chama_eixoE_dianteiro(BigDecimal diametro_passagem_chama_eixoE_dianteiro) {
         this.diametro_passagem_chama_eixoE_dianteiro = diametro_passagem_chama_eixoE_dianteiro;
     }
 
-    public String getDiametro_passagem_chama_eixoE_traseiro() {
+    public BigDecimal getDiametro_passagem_chama_eixoE_traseiro() {
         return diametro_passagem_chama_eixoE_traseiro;
     }
 
-    public void setDiametro_passagem_chama_eixoE_traseiro(String diametro_passagem_chama_eixoE_traseiro) {
+    public void setDiametro_passagem_chama_eixoE_traseiro(BigDecimal diametro_passagem_chama_eixoE_traseiro) {
         this.diametro_passagem_chama_eixoE_traseiro = diametro_passagem_chama_eixoE_traseiro;
     }
 
-    public String getFolga_maxima_dianteira() {
+    public BigDecimal getFolga_maxima_dianteira() {
         return folga_maxima_dianteira;
     }
 
-    public void setFolga_maxima_dianteira(String folga_maxima_dianteira) {
+    public void setFolga_maxima_dianteira(BigDecimal folga_maxima_dianteira) {
         this.folga_maxima_dianteira = folga_maxima_dianteira;
     }
 
-    public String getFolga_maxima_traseira() {
+    public BigDecimal getFolga_maxima_traseira() {
         return folga_maxima_traseira;
     }
 
-    public void setFolga_maxima_traseira(String folga_maxima_traseira) {
+    public void setFolga_maxima_traseira(BigDecimal folga_maxima_traseira) {
         this.folga_maxima_traseira = folga_maxima_traseira;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.anel_fixacao);
-        hash = 79 * hash + Objects.hashCode(this.carcaca);
-        hash = 79 * hash + Objects.hashCode(this.linha);
-        hash = 79 * hash + Objects.hashCode(this.polos);
-        hash = 79 * hash + Objects.hashCode(this.w_dianteiro);
-        hash = 79 * hash + Objects.hashCode(this.w1_dianteiro);
-        hash = 79 * hash + Objects.hashCode(this.w2_dianteiro);
-        hash = 79 * hash + Objects.hashCode(this.w3_dianteiro);
-        hash = 79 * hash + Objects.hashCode(this.w_traseiro);
-        hash = 79 * hash + Objects.hashCode(this.w1_traseiro);
-        hash = 79 * hash + Objects.hashCode(this.w2_traseiro);
-        hash = 79 * hash + Objects.hashCode(this.w3_traseiro);
-        hash = 79 * hash + Objects.hashCode(this.comprimento_passagem_chama_L);
-        hash = 79 * hash + Objects.hashCode(this.diametro_passagem_chama_dianteiro);
-        hash = 79 * hash + Objects.hashCode(this.diametro_passagem_chama_traseiro);
-        hash = 79 * hash + Objects.hashCode(this.diametro_passagem_chama_eixoE_dianteiro);
-        hash = 79 * hash + Objects.hashCode(this.diametro_passagem_chama_eixoE_traseiro);
-        hash = 79 * hash + Objects.hashCode(this.folga_maxima_dianteira);
-        hash = 79 * hash + Objects.hashCode(this.folga_maxima_traseira);
+        hash = 53 * hash + Objects.hashCode(this.anel_fixacao);
+        hash = 53 * hash + Objects.hashCode(this.carcaca);
+        hash = 53 * hash + Objects.hashCode(this.linha);
+        hash = 53 * hash + Objects.hashCode(this.polos);
+        hash = 53 * hash + Objects.hashCode(this.w_dianteiro);
+        hash = 53 * hash + Objects.hashCode(this.w1_dianteiro);
+        hash = 53 * hash + Objects.hashCode(this.w2_dianteiro);
+        hash = 53 * hash + Objects.hashCode(this.w3_dianteiro);
+        hash = 53 * hash + Objects.hashCode(this.w_traseiro);
+        hash = 53 * hash + Objects.hashCode(this.w1_traseiro);
+        hash = 53 * hash + Objects.hashCode(this.w2_traseiro);
+        hash = 53 * hash + Objects.hashCode(this.w3_traseiro);
+        hash = 53 * hash + Objects.hashCode(this.comprimento_passagem_chama_L);
+        hash = 53 * hash + Objects.hashCode(this.diametro_passagem_chama_dianteiro);
+        hash = 53 * hash + Objects.hashCode(this.diametro_passagem_chama_traseiro);
+        hash = 53 * hash + Objects.hashCode(this.diametro_passagem_chama_eixoE_dianteiro);
+        hash = 53 * hash + Objects.hashCode(this.diametro_passagem_chama_eixoE_traseiro);
+        hash = 53 * hash + Objects.hashCode(this.folga_maxima_dianteira);
+        hash = 53 * hash + Objects.hashCode(this.folga_maxima_traseira);
         return hash;
     }
 
@@ -233,6 +235,12 @@ public class ExAnelFixacao {
             return false;
         }
         if (!Objects.equals(this.linha, other.linha)) {
+            return false;
+        }
+        if (!Objects.equals(this.carcaca, other.carcaca)) {
+            return false;
+        }
+        if (!Objects.equals(this.polos, other.polos)) {
             return false;
         }
         if (!Objects.equals(this.w_dianteiro, other.w_dianteiro)) {
@@ -278,12 +286,6 @@ public class ExAnelFixacao {
             return false;
         }
         if (!Objects.equals(this.folga_maxima_traseira, other.folga_maxima_traseira)) {
-            return false;
-        }
-        if (!Objects.equals(this.carcaca, other.carcaca)) {
-            return false;
-        }
-        if (!Objects.equals(this.polos, other.polos)) {
             return false;
         }
         return true;

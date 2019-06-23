@@ -5,7 +5,7 @@
  */
 package br.com.dsc.cbi.apirest.repositories;
 
-import br.com.dsc.cbi.apirest.entities.atmosferaex.ExAnelFixacao;
+import br.com.dsc.cbi.apirest.entities.atmosferaex.ExTampa;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author Tiago
  */
 @Repository
-public interface ExAnelFixacaoRepository extends MongoRepository<ExAnelFixacao, String>{
-    
+public interface ExTampaRepository extends MongoRepository<ExTampa, String> {
+
 }
