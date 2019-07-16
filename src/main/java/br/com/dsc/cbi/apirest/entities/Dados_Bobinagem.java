@@ -5,6 +5,7 @@
  */
 package br.com.dsc.cbi.apirest.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  *
  * @author Tiago
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Dados_Bobinagem implements Serializable {
     
     private String comprimento;

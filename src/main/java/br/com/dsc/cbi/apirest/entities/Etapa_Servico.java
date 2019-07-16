@@ -5,6 +5,7 @@
  */
 package br.com.dsc.cbi.apirest.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -13,6 +14,7 @@ import java.util.Objects;
  *
  * @author Tiago
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Etapa_Servico implements Serializable {
     
     private String nome_etapa;

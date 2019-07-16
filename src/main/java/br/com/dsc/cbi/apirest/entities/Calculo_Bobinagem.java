@@ -5,10 +5,13 @@
  */
 package br.com.dsc.cbi.apirest.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  *
  * @author Tiago
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Calculo_Bobinagem {
 
     private String enrolamento;

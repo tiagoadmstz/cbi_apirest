@@ -10,15 +10,18 @@ import br.com.dsc.cbi.apirest.rest.converters.LocalDateTimeSerialiazer;
 import java.time.LocalDateTime;
 import java.util.List;
 import br.com.dsc.cbi.apirest.interfaces.Equipamento;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.io.Serializable;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Tiago
  */
-public class Equipamento_Eletrico implements Serializable, Equipamento {
+@Component("equipamento_eletrico")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Equipamento_Eletrico implements Equipamento {
 
     private String placa_rastreabilidade;
     private String categoria;
@@ -43,6 +46,30 @@ public class Equipamento_Eletrico implements Serializable, Equipamento {
     private Boolean vibracao;
 
     public Equipamento_Eletrico() {
+    }
+
+    public Equipamento_Eletrico(String placa_rastreabilidade, String categoria, String numero_serie, String marca, String potencia, String modelo, LocalDateTime data_fabricacao, String rpm, String tensao, String corrente, Boolean enrolamento_fabrica, String patrimonio, String forma_construtiva, String caixa_ligacao, Boolean acoplamento, String descricao_acoplamento, String quantidade_cabos, String fechamento, List<Dados_Bobinagem> dados_bobinagem, String causa_queima, Boolean vibracao) {
+        this.placa_rastreabilidade = placa_rastreabilidade;
+        this.categoria = categoria;
+        this.numero_serie = numero_serie;
+        this.marca = marca;
+        this.potencia = potencia;
+        this.modelo = modelo;
+        this.data_fabricacao = data_fabricacao;
+        this.rpm = rpm;
+        this.tensao = tensao;
+        this.corrente = corrente;
+        this.enrolamento_fabrica = enrolamento_fabrica;
+        this.patrimonio = patrimonio;
+        this.forma_construtiva = forma_construtiva;
+        this.caixa_ligacao = caixa_ligacao;
+        this.acoplamento = acoplamento;
+        this.descricao_acoplamento = descricao_acoplamento;
+        this.quantidade_cabos = quantidade_cabos;
+        this.fechamento = fechamento;
+        this.dados_bobinagem = dados_bobinagem;
+        this.causa_queima = causa_queima;
+        this.vibracao = vibracao;
     }
 
     public String getPlaca_rastreabilidade() {

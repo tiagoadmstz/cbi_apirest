@@ -5,16 +5,20 @@
  */
 package br.com.dsc.cbi.apirest.entities;
 
-import java.io.Serializable;
+import br.com.dsc.cbi.apirest.interfaces.Ensaio;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author Tiago
  */
-public class Teste implements Serializable {
+@Component("teste_padrao")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Ensaio_Padrao implements Ensaio {
     
     private String tensao;
     private String rst;
@@ -34,7 +38,7 @@ public class Teste implements Serializable {
     private String equipamentos_utilizados;
     private Etapa_Servico ensaio_final;
 
-    public Teste() {
+    public Ensaio_Padrao() {
     }
 
     public String getTensao() {
@@ -207,7 +211,7 @@ public class Teste implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Teste other = (Teste) obj;
+        final Ensaio_Padrao other = (Ensaio_Padrao) obj;
         if (!Objects.equals(this.tensao, other.tensao)) {
             return false;
         }

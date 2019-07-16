@@ -11,6 +11,6 @@ import java.io.Serializable;
  *
  * @author Tiago
  */
-public interface Equipamento extends Serializable {
-
+public interface Ensaio extends Serializable {
+    
 }

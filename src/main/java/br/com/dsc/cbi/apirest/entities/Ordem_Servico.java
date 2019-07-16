@@ -5,6 +5,7 @@
  */
 package br.com.dsc.cbi.apirest.entities;
 
+import br.com.dsc.cbi.apirest.interfaces.Ensaio;
 import br.com.dsc.cbi.apirest.rest.converters.LocalDateTimeDerialiazer;
 import br.com.dsc.cbi.apirest.rest.converters.LocalDateTimeSerialiazer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -44,7 +45,7 @@ public class Ordem_Servico implements Serializable {
     private String nota_fiscal;
     private String palete;
     private String status;
-    private List<Teste> testes;
+    private List<Ensaio> testes;
     private List<String> anexos;
 
     public Ordem_Servico() {
@@ -162,11 +163,11 @@ public class Ordem_Servico implements Serializable {
         this.status = status;
     }
 
-    public List<Teste> getTestes() {
+    public List<Ensaio> getTestes() {
         return testes;
     }
 
-    public void setTestes(List<Teste> testes) {
+    public void setTestes(List<Ensaio> testes) {
         this.testes = testes;
     }
 
