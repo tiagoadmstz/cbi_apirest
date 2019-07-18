@@ -33,10 +33,10 @@ public class CbiApirestApplicationTests {
     public void contextLoads() {
     }
 
-    @Autowired
+    //@Autowired
     private OrdemServicoRepository repository;
 
-    @Test
+    //@Test
     public void obdcTransfer() {
         transferData();
     }
