@@ -13,6 +13,7 @@ import br.com.dsc.cbi.apirest.interfaces.Equipamento;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.math.BigDecimal;
 import org.springframework.stereotype.Component;
 
 /**
@@ -33,6 +34,13 @@ public class Equipamento_Eletrico implements Equipamento {
     private String rpm;
     private String tensao;
     private String corrente;
+    private String frequencia;
+    private BigDecimal fator_servico;
+    private String indice_protecao;
+    private String classe_isolacao;
+    private BigDecimal IpIn;
+    private String regime;
+    private String certificado;
     private Boolean enrolamento_fabrica;
     private String patrimonio;
     private String forma_construtiva;
@@ -154,6 +162,62 @@ public class Equipamento_Eletrico implements Equipamento {
         this.corrente = corrente;
     }
 
+    public String getFrequencia() {
+        return frequencia;
+    }
+
+    public void setFrequencia(String frequencia) {
+        this.frequencia = frequencia;
+    }
+
+    public BigDecimal getFator_servico() {
+        return fator_servico;
+    }
+
+    public void setFator_servico(BigDecimal fator_servico) {
+        this.fator_servico = fator_servico;
+    }
+
+    public String getIndice_protecao() {
+        return indice_protecao;
+    }
+
+    public void setIndice_protecao(String indice_protecao) {
+        this.indice_protecao = indice_protecao;
+    }
+
+    public String getClasse_isolacao() {
+        return classe_isolacao;
+    }
+
+    public void setClasse_isolacao(String classe_isolacao) {
+        this.classe_isolacao = classe_isolacao;
+    }
+
+    public BigDecimal getIpIn() {
+        return IpIn;
+    }
+
+    public void setIpIn(BigDecimal IpIn) {
+        this.IpIn = IpIn;
+    }
+
+    public String getRegime() {
+        return regime;
+    }
+
+    public void setRegime(String regime) {
+        this.regime = regime;
+    }
+
+    public String getCertificado() {
+        return certificado;
+    }
+
+    public void setCertificado(String certificado) {
+        this.certificado = certificado;
+    }
+
     public Boolean getEnrolamento_fabrica() {
         return enrolamento_fabrica;
     }
@@ -244,7 +308,7 @@ public class Equipamento_Eletrico implements Equipamento {
 
     @Override
     public String toString() {
-        return "Equipamento_Eletrico{" + "placa_rastreabilidade=" + placa_rastreabilidade + ", categoria=" + categoria + ", numero_serie=" + numero_serie + ", marca=" + marca + ", potencia=" + potencia + ", modelo=" + modelo + ", data_fabricacao=" + data_fabricacao + ", rpm=" + rpm + ", tensao=" + tensao + ", corrente=" + corrente + ", enrolamento_fabrica=" + enrolamento_fabrica + ", patrimonio=" + patrimonio + ", forma_construtiva=" + forma_construtiva + ", caixa_ligacao=" + caixa_ligacao + ", acoplamento=" + acoplamento + ", descricao_acoplamento=" + descricao_acoplamento + ", quantidade_cabos=" + quantidade_cabos + ", fechamento=" + fechamento + ", dados_bobinagem=" + dados_bobinagem + ", causa_queima=" + causa_queima + ", vibracao=" + vibracao + '}';
+        return "Equipamento_Eletrico{" + "placa_rastreabilidade=" + placa_rastreabilidade + ", categoria=" + categoria + ", numero_serie=" + numero_serie + ", marca=" + marca + ", potencia=" + potencia + ", modelo=" + modelo + ", data_fabricacao=" + data_fabricacao + ", rpm=" + rpm + ", tensao=" + tensao + ", corrente=" + corrente + ", frequencia=" + frequencia + ", fator_servico=" + fator_servico + ", indice_protecao=" + indice_protecao + ", classe_isolacao=" + classe_isolacao + ", IpIn=" + IpIn + ", regime=" + regime + ", certificado=" + certificado + ", enrolamento_fabrica=" + enrolamento_fabrica + ", patrimonio=" + patrimonio + ", forma_construtiva=" + forma_construtiva + ", caixa_ligacao=" + caixa_ligacao + ", acoplamento=" + acoplamento + ", descricao_acoplamento=" + descricao_acoplamento + ", quantidade_cabos=" + quantidade_cabos + ", fechamento=" + fechamento + ", dados_bobinagem=" + dados_bobinagem + ", causa_queima=" + causa_queima + ", vibracao=" + vibracao + '}';
     }
 
 }

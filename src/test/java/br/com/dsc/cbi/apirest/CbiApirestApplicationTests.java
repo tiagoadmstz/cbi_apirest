@@ -3,6 +3,7 @@ package br.com.dsc.cbi.apirest;
 import br.com.dsc.cbi.apirest.entities.Etapa_Servico;
 import br.com.dsc.cbi.apirest.entities.Ordem_Servico;
 import br.com.dsc.cbi.apirest.entities.Ensaio_Padrao;
+import br.com.dsc.cbi.apirest.entities.Equipamento_Eletrico;
 import br.com.dsc.cbi.apirest.odbc.ConnectionOdbc;
 import br.com.dsc.cbi.apirest.repositories.OrdemServicoRepository;
 import java.sql.ResultSet;
@@ -29,94 +30,31 @@ public class CbiApirestApplicationTests {
     public void contextLoads() {
     }
 
-    @Autowired
+    //@Autowired
     private OrdemServicoRepository repository;
 
-    @Test
+    //@Test
     public void obdcTransfer() {
-        repository.findAll().forEach(System.out::println);
+        transferData();
     }
 
     public void transferData() {
         try {
-            List<Ordem_Servico> ordens = repository.findByEquipamento("Máquina de Solda").stream().filter(os -> os.getOs() != null).collect(Collectors.toList());
+            List<Ordem_Servico> ordens = repository.findByEquipamento(null).stream().filter(os -> os.getOs() != null).collect(Collectors.toList());
             Connection conn = new ConnectionOdbc().getConnection();
             for (Ordem_Servico os : ordens) {
-                PreparedStatement ps = conn.prepareStatement("SELECT * FROM [Teste Máquina de Solda] tt WHERE tt.ID = (SELECT TOP 1 db.ID FROM [Máquinas de Solda] db WHERE db.OS = ?)");
+                PreparedStatement ps = conn.prepareStatement("SELECT * FROM ensaiosIniciaisEX ei WHERE ei.idOS = (SELECT TOP 1 db.ID FROM [Dados de Bobinagem] db WHERE db.OS = ?)");
                 ps.setString(1, os.getOs());
                 ResultSet rst = ps.executeQuery();
                 while (rst.next()) {
-                    Ensaio_Padrao teste = new Ensaio_Padrao();
-
-                    teste.setEtapas(new ArrayList());
-                    Etapa_Servico desmontagem = new Etapa_Servico();
-                    desmontagem.setNome_etapa("Desmontagem");
-                    desmontagem.setResponsavel_etapa(getNomeFuncionario(conn, rst.getInt(7)));
-                    //desmontagem.setData_etapa(stringToLocalDateTime(rst.getString(17)));
-                    if (desmontagem.getResponsavel_etapa() != null) {
-                        teste.getEtapas().add(desmontagem);
-                    }
-                    Etapa_Servico desmanche = new Etapa_Servico();
-                    desmanche.setNome_etapa("Desmanche");
-                    desmanche.setResponsavel_etapa(getNomeFuncionario(conn, rst.getInt(8)));
-                    //desmanche.setData_etapa(stringToLocalDateTime(rst.getString(19)));
-                    if (desmanche.getResponsavel_etapa() != null) {
-                        teste.getEtapas().add(desmanche);
-                    }
-                    Etapa_Servico rebobinamento = new Etapa_Servico();
-                    rebobinamento.setNome_etapa("Rebobinamento");
-                    rebobinamento.setResponsavel_etapa(getNomeFuncionario(conn, rst.getInt(9)));
-                    //rebobinamento.setData_etapa(stringToLocalDateTime(rst.getString(23)));
-                    if (rebobinamento.getResponsavel_etapa() != null) {
-                        teste.getEtapas().add(rebobinamento);
-                    }
-                    Etapa_Servico bobina = new Etapa_Servico();
-                    bobina.setNome_etapa("Bobina");
-                    bobina.setResponsavel_etapa(getNomeFuncionario(conn, rst.getInt(10)));
-                    //bobina.setData_etapa(stringToLocalDateTime(rst.getString(21)));
-                    if (bobina.getResponsavel_etapa() != null) {
-                        teste.getEtapas().add(bobina);
-                    }
-                    /*Etapa_Servico acabamento = new Etapa_Servico();
-                    acabamento.setNome_etapa("Acabamento");
-                    acabamento.setResponsavel_etapa(getNomeFuncionario(conn, rst.getInt(24)));
-                    acabamento.setData_etapa(stringToLocalDateTime(rst.getString(25)));
-                    if (acabamento.getResponsavel_etapa() != null) {
-                    teste.getEtapas().add(acabamento);
-                    }
-                    Etapa_Servico impregnacao = new Etapa_Servico();
-                    impregnacao.setNome_etapa("Impregnação");
-                    impregnacao.setResponsavel_etapa(getNomeFuncionario(conn, rst.getInt(26)));
-                    impregnacao.setData_etapa(stringToLocalDateTime(rst.getString(27)));
-                    teste.setImpregnacao_hora_final(stringToLocalDateTime(rst.getString(28)));
-                    if (impregnacao.getResponsavel_etapa() != null) {
-                    teste.getEtapas().add(impregnacao);
-                    }*/
-                    Etapa_Servico montagem = new Etapa_Servico();
-                    montagem.setNome_etapa("Montagem");
-                    montagem.setResponsavel_etapa(getNomeFuncionario(conn, rst.getInt(11)));
-                    //montagem.setData_etapa(stringToLocalDateTime(rst.getString(30)));
-                    if (montagem.getResponsavel_etapa() != null) {
-                        teste.getEtapas().add(montagem);
-                    }
-                    /*Etapa_Servico pintura = new Etapa_Servico();
-                    pintura.setNome_etapa("Pintura");
-                    pintura.setData_etapa(stringToLocalDateTime(rst.getString(31)));
-                    pintura.setResponsavel_etapa(getNomeFuncionario(conn, rst.getInt(32)));
-                    if (pintura.getResponsavel_etapa() != null) {
-                    teste.getEtapas().add(pintura);
-                    }
-                    teste.setCor_pintura(rst.getString(33));*/
-                    Etapa_Servico outros = new Etapa_Servico();
-                    outros.setNome_etapa(rst.getString(12));
-                    outros.setResponsavel_etapa(getNomeFuncionario(conn, rst.getInt(13)));
-                    if (outros.getResponsavel_etapa() != null) {
-                        teste.getEtapas().add(outros);
-                    }
-                    //teste.setEquipamentos_utilizados(rst.getString(36));
-                    //teste.setEnsaio_final(new Etapa_Servico("Ensaio Final", null, getNomeFuncionario(conn, rst.getInt(37))));
-                    os.setTestes(Arrays.asList(teste));
-                    //System.out.println(teste);
+                    Equipamento_Eletrico equip = os.getDados_equipamento();
+                    equip.setFrequencia(rst.getString(5));
+                    equip.setFator_servico(stringToBigDecimal(rst.getString(6)));
+                    equip.setIndice_protecao(rst.getString(7));
+                    equip.setClasse_isolacao(rst.getString(8));
+                    equip.setIpIn(stringToBigDecimal(rst.getString(9)));
+                    equip.setRegime(rst.getString(10));
+                    equip.setCertificado(rst.getString(11));
                     repository.save(os);
                 }
             }
@@ -126,7 +64,7 @@ public class CbiApirestApplicationTests {
     }
 
     private BigDecimal stringToBigDecimal(String string) {
-        return string != null ? new BigDecimal(string.replace(",", ".")) : null;
+        return string != null && !"".equals(string) ? new BigDecimal(string.replace(",", ".")) : null;
     }
 
     private LocalDateTime stringToLocalDateTime(String date) {
