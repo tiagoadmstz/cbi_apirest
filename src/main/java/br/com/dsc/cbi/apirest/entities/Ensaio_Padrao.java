@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  *
  * @author Tiago
  */
-@Component("teste_padrao")
+@Component("ensaio_padrao")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Ensaio_Padrao implements Ensaio {
     
